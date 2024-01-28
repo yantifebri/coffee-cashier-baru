@@ -303,11 +303,24 @@
             </li><!-- End Profile Page Nav -->
 
             <li class="nav-item">
+                <a href="{{ url('/kategori') }}" class="nav-link">
+                    <i class="nav-icon fas fa-solid fa-store"></i>
+                    <p>
+                        Kategori
+                    </p>
+                </a>
+            </li>
+
+           
+
+            
+
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-faq.html">
                     <i class="bi bi-question-circle"></i>
                     <span></span>
                 </a>
-            </li><!-- End F.A.Q Page Nav -->
+            </li><!-- End F.A.Q Page Nav --> --}}
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact.html">
