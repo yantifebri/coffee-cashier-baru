@@ -124,7 +124,7 @@
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
                 let nama_jenis = $(button).data('nama_jenis')
-                console.log(nama_jenis)
+
                 $(this).find('#nama_jenis').val(nama_jenis)
 
                 $('.form-edit').attr('action', `/jenis/${id}`)

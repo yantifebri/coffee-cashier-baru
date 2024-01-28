@@ -1,22 +1,25 @@
 <!-- Modal -->
-<div class="modal fade" id="modalFormKategori" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+<div class="modal fade" id="modalFormStok" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Kategori</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah Stok</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-                <form method="post" action="kategori">
+                <form method="post" action="stok">
                     @csrf
                     <div class="form-group row">
-                        <label for="nama_kategori" class="col-sm-4 col-form-label">Nama Kategori</label>
+                        <label for="jumlah" class="col-sm-4 col-form-label">Jumlah</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nama_kategori" name='nama_kategori'>
-
+                            <input type="text" class="form-control" id="jumlah" name='jumlah'>
                         </div>
+
+
+
+
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
                 <div class="col-sm-8">
                   <select class="form-control" name="terpenuhi" id="terpenuhi">

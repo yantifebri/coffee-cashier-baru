@@ -12,11 +12,11 @@
                 <form method="post" action=kategori class="form-edit" >
                     @csrf
                     @method('PUT')
-                    <div class="form-group row">
-                        <label for="nama_kategori" class="col-sm-4 col-form-label">Nama</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nama_kategori" name='nama_kategori'>
-                        </div>
+                    <label for="nama_kategori" class="col-sm-4 col-form-label">Nama Kategori</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="nama_kategori" name='nama_kategori'>
+
+                    </div>
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
                 <div class="col-sm-8">
                   <select class="form-control" name="terpenuhi" id="terpenuhi">

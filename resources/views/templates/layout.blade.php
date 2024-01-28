@@ -331,6 +331,15 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ url('/stok') }}" class="nav-link">
+                    <i class="nav-icon fas fa-solid fa-store"></i>
+                    <p>
+                        Stok
+                    </p>
+                </a>
+            </li>
+
 
 
             {{-- <li class="nav-item">

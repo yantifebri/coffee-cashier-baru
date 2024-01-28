@@ -14,7 +14,7 @@
                         <label for="nama_jenis" class="col-sm-4 col-form-label">Nama Jenis</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="nama_jenis" name='nama_jenis'>
-
+                        </div>
 
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
                 <div class="col-sm-8">

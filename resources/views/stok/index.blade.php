@@ -11,7 +11,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Menu</li>
+                        <li class="breadcrumb-item active">Stok</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -58,8 +58,8 @@
                     @endif
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalFormMenu">
-                        <i class="fas fa-plus"></i> Tambah Menu
+                        data-bs-target="#modalFormStok">
+                        <i class="fas fa-plus"></i> Tambah Stok
                     </button>
                     {{-- <a href="{{route('eksportExcel')}}" class="btn btn-success">
         <i class="fas fa-table"></i> Export XSLX
@@ -74,9 +74,9 @@
                     </tbody>
 
                     </table>
-                    @include('menu.data')
-                    @include('menu.edit')
-                    @include('menu.form')
+                    @include('stok.data')
+                    @include('stok.edit')
+                    @include('stok.form')
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -104,12 +104,12 @@
             $('#myTable').DataTable()
         })
         $('.delete-data').on('click', function(e) {
-            const nama_menu = $(this).closest('tr').find('td:eq(1)').text();
+            const jumlah = $(this).closest('tr').find('td:eq(1)').text();
             console.log('tes')
             Swal.fire({
                 icon: 'error',
                 title: 'Hapus Data',
-                html: `Apakah data <b>${nama_menu}</b> akan di hapus?`,
+                html: `Apakah data <b>${jumlah}</b> akan di hapus?`,
                 confirmButtonText: 'Ya',
                 denyButtonText: 'Tidak',
                 'showDenyButton': true,
@@ -126,20 +126,15 @@
             $('#modalEdit').on('show.bs.modal', function(e) {
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
-                let nama_menu = $(button).data('nama_menu')
-                let harga = $(button).data('harga')
-                let image = $(button).data('image')
-                let deskripsi = $(button).data('deskripsi')
+                let jumlah = $(button).data('jumlah')
+              
+
+
+                $(this).find('#jumlah').val(jumlah)
+               
                
 
-
-                $(this).find('#nama_menu').val(nama_menu)
-                $(this).find('#harga').val(harga)
-                $(this).find('#image').val(image)
-                $(this).find('#deskripsi').val(deskripsi)
-               
-
-                $('.form-edit').attr('action', `/menu/${id}`)
+                $('.form-edit').attr('action', `/stok/${id}`)
             })
         })
     </script>
