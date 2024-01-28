@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Karyawan;
-use App\Http\Requests\StoreKaryawanRequest;
-use App\Http\Requests\UpdateKaryawanRequest;
+use App\Models\Menu;
+use App\Http\Requests\StoreMenuRequest;
+use App\Http\Requests\UpdateMenuRequest;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
 
-class KaryawanController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class KaryawanController extends Controller
     public function index()
     {
         try {
-            $karyawan = Karyawan::latest()->get();
-            return view('karyawan.index', compact('karyawan'));
+            $menu = Menu::latest()->get();
+            return view('menu.index', compact('menu'));
         } catch (QueryException | Exception | PDOException $error) {
             //    $this->failResponse($error->getMessage(), $error->getCode());
             // return redirect()->back()->withErrors(['message' => 'Terjadi error']);
@@ -37,35 +37,35 @@ class KaryawanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKaryawanRequest $request)
+    public function store(StoreMenuRequest $request)
     {
 
         $validated = $request->validated();
         DB::beginTransaction();
-        Karyawan::create($request->all());
+       Menu::create($request->all());
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
     
-    public function update(UpdateKaryawanRequest $request, $karyawan)
+    public function update(UpdateMenuRequest $request, $menu)
     {
         try {
             DB::beginTransaction();
-            $karyawan = karyawan::findOrFail($karyawan);
+            $menu = Menu::findOrFail($menu);
             $validate = $request->validated();
-            $karyawan->update($validate);
+            $menu->update($validate);
             DB::commit();
             return redirect()->back()->with('success', 'data berhasil di ubah');
         } catch (Exception $e) {
             return redirect()->back()->withErrors(['message' => 'terjadi kesalahan']);
         }
     }
-    public function destroy(Karyawan $karyawan)
+    public function destroy(Menu $menu)
     {
         try {
-            $karyawan->delete();
-            return redirect('/karyawan')->with('success', 'Data berhasil dihapus!');
+            $menu->delete();
+            return redirect('/menu')->with('success', 'Data berhasil dihapus!');
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getCode());
         }

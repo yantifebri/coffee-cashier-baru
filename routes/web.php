@@ -6,8 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\MenuController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::resource('/karyawan', KaryawanController::class);
 Route::resource('/kategori', KategoriController::class);
 Route::resource('/jenis', JenisController::class);
+Route::resource('/menu', MenuController::class);
