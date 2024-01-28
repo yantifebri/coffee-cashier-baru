@@ -8,10 +8,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($kategori as $p)
+            @foreach ($jenis as $p)
                 <tr>
                     <td>{{ $i = !isset($i) ? ($i = 1) : ++$i }}</td>
-                    <td>{{ $p->nama_kategori }}</td>
+                    <td>{{ $p->nama_jenis }}</td>
 
                     {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
                     {{-- <td>
@@ -23,11 +23,11 @@
 
                     <td>
                         <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama_kategori ="{{ $p->nama_kategori }}">
+                            data-mode = "edit" data-id = "{{ $p->id }}" data-jenis ="{{ $p->nama_jenis }}">
 
                             <i class="fas fa-edit"></i>
                         </button>
-                        <form action="{{ route('kategori.destroy', $p->id) }}" method="post" style="display: inline">
+                        <form action="{{ route('jenis.destroy', $p->id) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="btn delete-data btn-danger"><i

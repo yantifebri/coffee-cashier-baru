@@ -28,12 +28,14 @@ class StorekategoriRequest extends FormRequest
             'nama_kategori'=>'required'
         ];
     }
-    public function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json([
-            'success'   => false,
-            'message'   => 'Validation errors',
-            'data'      => $validator->errors()
-        ]));
+    public function messages()
+    { {
+            return [
+               
+                'nama_kategori.required' => 'Nama  belum diisi!',
+                
+
+            ];
+        }
     }
 }

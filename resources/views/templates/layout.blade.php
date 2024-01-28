@@ -311,7 +311,14 @@
                 </a>
             </li>
 
-           
+            <li class="nav-item">
+                <a href="{{ url('/jenis') }}" class="nav-link">
+                    <i class="nav-icon fas fa-solid fa-store"></i>
+                    <p>
+                        Jenis
+                    </p>
+                </a>
+            </li>
 
             
 
