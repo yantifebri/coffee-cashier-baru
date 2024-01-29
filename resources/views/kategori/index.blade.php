@@ -125,6 +125,7 @@
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
                 let nama_kategori = $(button).data('nama_kategori')
+                console.log(nama_kategori)
                 $(this).find('#nama_kategori').val(nama_kategori)
 
                 $('.form-edit').attr('action', `/kategori/${id}`)

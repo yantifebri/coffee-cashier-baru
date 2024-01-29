@@ -11,10 +11,13 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Jenis</li>
+                        <li class="breadcrumb-item active">Meja</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
+
+
+
 
             <!-- Default box -->
             <div class="card">
@@ -54,8 +57,9 @@
                         </div>
                     @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormJenis">
-                        <i class="fas fa-plus"></i> Tambah Jenis
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modalFormMeja">
+                        <i class="fas fa-plus"></i> Tambah Meja
                     </button>
                     {{-- <a href="{{route('eksportExcel')}}" class="btn btn-success">
         <i class="fas fa-table"></i> Export XSLX
@@ -70,15 +74,14 @@
                     </tbody>
 
                     </table>
-                    @include('jenis.data')
-                    @include('jenis.edit')
-
+                    @include('meja.data')
+                    @include('meja.edit')
+                    @include('meja.form')
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                     Footer
                 </div>
-                @include('jenis.form')
                 <!-- /.card-footer-->
             </div>
             <!-- /.card -->
@@ -101,12 +104,12 @@
             $('#myTable').DataTable()
         })
         $('.delete-data').on('click', function(e) {
-            const nama_jenis = $(this).closest('tr').find('td:eq(1)').text();
+            const nomor_meja = $(this).closest('tr').find('td:eq(1)').text();
             console.log('tes')
             Swal.fire({
                 icon: 'error',
                 title: 'Hapus Data',
-                html: `Apakah data <b>${nama_jenis}</b> akan di hapus?`,
+                html: `Apakah data <b>${nomor_meja}</b> akan di hapus?`,
                 confirmButtonText: 'Ya',
                 denyButtonText: 'Tidak',
                 'showDenyButton': true,
@@ -123,12 +126,21 @@
             $('#modalEdit').on('show.bs.modal', function(e) {
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
-                let nama_jenis = $(button).data('nama_jenis')
-                console.log(nama_jenis)
+                let nomor_meja  = $(button).data('nomor_meja')
+                let kapasitas = $(button).data('kapasitas')
+                let status = $(button).data('status')
+              
+                console.log(nomor_meja)
+               
 
-                $(this).find('#nama_jenis').val(nama_jenis)
 
-                $('.form-edit').attr('action', `/jenis/${id}`)
+                $(this).find('#nomor_meja ').val(nomor_meja )
+                $(this).find('#kapasitas').val(kapasitas)
+                $(this).find('#status').val(status)
+               
+               
+
+                $('.form-edit').attr('action', `/meja/${id}`)
             })
         })
     </script>

@@ -3,15 +3,23 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama</th>
+                <th>Nomor Meja</th>
+                <th>Kapasitas</th>
+                <th>Status</th>
+
+
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($jenis as $p)
+            @foreach ($meja as $p)
                 <tr>
                     <td>{{ $i = !isset($i) ? ($i = 1) : ++$i }}</td>
-                    <td>{{ $p->nama_jenis }}</td>
+
+                    <td>{{ $p->nomor_meja }}</td>
+                    <td>{{ $p->kapasitas }}</td>
+                    <td>{{ $p->status }}</td>
+
 
                     {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
                     {{-- <td>
@@ -23,11 +31,11 @@
 
                     <td>
                         <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama_jenis ="{{ $p->nama_jenis }}">
-
+                            data-mode = "edit" data-id = "{{ $p->id }}" data-nomor_meja ="{{ $p->nomor_meja }}"
+                            data-kapasitas="{{ $p->kapasitas }}" data-status ="{{ $p->status }}">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <form action="{{ route('jenis.destroy', $p->id) }}" method="post" style="display: inline">
+                        <form action="{{ route('meja.destroy', $p->id) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="btn delete-data btn-danger"><i

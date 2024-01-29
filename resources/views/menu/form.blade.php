@@ -32,7 +32,7 @@
                             <input type="text" class="form-control" id="deskripsi" name='deskripsi'>
                         </div>
 
-                        
+
 
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
                 <div class="col-sm-8">
