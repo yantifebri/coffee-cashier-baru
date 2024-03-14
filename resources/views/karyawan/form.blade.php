@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="karyawan">
+                <form method="post" action="karyawan" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="nip" class="col-sm-4 col-form-label">NIP</label>
@@ -64,7 +64,7 @@
 
                         <label for="foto" class="col-sm-4 col-form-label">Foto</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="foto" name='foto'>
+                            <input type="file" class="form-control" id="foto" name='foto'>
                         </div>
 
                         {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>

@@ -14,10 +14,13 @@ return new class extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->bigIncrements('id');
+        
+
             $table->string('nama_menu', 200);
             $table->double('harga');
             $table->string('image');
             $table->text('deskripsi');
+            $table->unsignedInteger('jenis_id');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
+use Illuminate\Support\Facades\Storage;
 
 class KaryawanController extends Controller
 {
@@ -42,12 +43,16 @@ class KaryawanController extends Controller
 
         $validated = $request->validated();
         DB::beginTransaction();
+        // dd($request->file('foto'));
+        $foto = $request->file('foto');
+        // Storage::put('foto/'.$request->file('foto'));
+        $foto->storeAs('gg', $foto->getClientOriginalName());
         Karyawan::create($request->all());
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
-    
+
     public function update(UpdateKaryawanRequest $request, $karyawan)
     {
         try {

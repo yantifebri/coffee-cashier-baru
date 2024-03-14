@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+
+use App\Exports\KategoriExport;
 use App\Models\kategori;
 use App\Http\Requests\StorekategoriRequest;
 use App\Http\Requests\UpdatekategoriRequest;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use PDOException;
+use App\Imports\KategoriImport;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
+
 
 class KategoriController extends Controller
 {
@@ -23,12 +31,7 @@ class KategoriController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
+  
     /**
      * Store a newly created resource in storage.
      */
@@ -67,5 +70,40 @@ class KategoriController extends Controller
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getCode());
         }
+    }
+
+
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return excel::download(new KategoriExport, $date . 'kategori.xlsx');
+    }
+    public function generatepdf()
+    {
+        $kategori = kategori::all();
+        $pdf = Pdf::loadView('kategori.data', compact('kategori'));
+        return $pdf->download('kategori.pdf');
+    }
+    // public function importData(Request $request)
+    // {
+
+    //     $validator = Validator::make($request->all(), [
+    //         'import' => 'required'
+    //     ]);
+    //     $validated = $validator->validated();
+    //     Excel::import(new KategoriImport, $validated['import']);
+    //     return redirect()->back()->with('success', 'Data berhasil di import');
+    // }
+
+    public function importData(Request $request)
+    {
+
+        // $validator = FacadesValidator::make($request->all(), [
+        //     'import' => 'required'
+        // ]);
+        // $validated = $validator->validated();
+        // Excel::import(new KategoriImport, $validated['import']);
+        Excel::import(new KategoriImport, $request->import);
+        return redirect()->back()->with('success', 'Data berhasil di import');
     }
 }

@@ -23,15 +23,7 @@
             <div class="card">
                 <div class="card-header">
                     {{-- <h3 class="card-title">Karyawan </h3> --}}
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
 
-                    </div>
                 </div>
 
                 <div class="card-body">
@@ -57,19 +49,19 @@
                         </div>
                     @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalFormMenu">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormMenu">
                         <i class="fas fa-plus"></i> Tambah Menu
                     </button>
-                    {{-- <a href="{{route('eksportExcel')}}" class="btn btn-success">
-        <i class="fas fa-table"></i> Export XSLX
-      </a>
-      <a href="{{route('eksportPdf')}}" class="btn btn-danger">
-        <i class="fas fa-file-pdf"></i> Export PDF
-      </a>
-      <button href="{{route('import')}}" type="button" class="btn btn-warning btn-import" data-toggle="modal" data-target="#formImport">
-        <i class="fas fa-file-import"></i>   Import
-      </button> --}}
+                    <a href="{{ route('exportmenu') }}" class="btn btn-success">
+                        <i class="fas fa-table"></i> Export XSLX
+                    </a>
+                    <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </a>
+                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
+                        data-toggle="modal" data-target="#formImport">
+                        <i class="fas fa-file-import"></i> Import
+                    </button>
 
                     </tbody>
 
@@ -130,14 +122,16 @@
                 let harga = $(button).data('harga')
                 let image = $(button).data('image')
                 let deskripsi = $(button).data('deskripsi')
-               
+                let jenis_id = $(button).data('jenis_id')
+
 
 
                 $(this).find('#nama_menu').val(nama_menu)
                 $(this).find('#harga').val(harga)
                 $(this).find('#image').val(image)
                 $(this).find('#deskripsi').val(deskripsi)
-               
+                $(this).find('#jenis_id').val(jenis_id)
+
 
                 $('.form-edit').attr('action', `/menu/${id}`)
             })

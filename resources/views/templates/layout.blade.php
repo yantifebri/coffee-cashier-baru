@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('admin/img/favicon.png') }}"" rel="icon">
-    <link href="{{ asset('admin/img/apple-touch-icon.png') }}"" rel="apple-touch-icon">
+    <link href="{{ asset('admin/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('admin/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -295,68 +295,92 @@
 
 
 
-            <li class="nav-item">
-                <a href="{{ url('/karyawan') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Karyawan
-                    </p>
+            {{-- <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/karyawan') }}">
+                    <i class="bi bi-person"></i>
+                    <span> Karyawan</span>
                 </a>
-            </li><!-- End Profile Page Nav -->
+            </li><!-- End Profile Page Nav --> --}}
+
 
             <li class="nav-item">
-                <a href="{{ url('/kategori') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Kategori
-                    </p>
+                <a class="nav-link collapsed" href="{{ url('/kategori') }}">
+                    <i class="bi bi-layers"></i>
+                    <span> Kategori</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/jenis') }}">
+                    <i class="bi bi-collection"></i>
+                    <span> Jenis</span>
+                </a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/menu') }}">
+                    <i class="bi bi-cup-hot"></i>
+                    <span> Menu</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/stok') }}">
+                    <i class="bi bi-box"></i>
+                    <span> Stok</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{ url('/jenis') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Jenis
-                    </p>
+                <a class="nav-link collapsed" href="{{ url('/pelanggan') }}">
+                    <i class="bi bi-person"></i>
+                    <span> Pelanggan</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a href="{{ url('/menu') }}" class="nav-link">
+                <a href="{{ url('/meja') }}" class="nav-link collapsed">
                     <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Menu
-                    </p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url('/stok') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Stok
-                    </p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url('/pelanggan') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
-                        Pelanggan
-                    </p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="{{ url('/meja') }}" class="nav-link">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <p>
+                    <span>
                         Meja
-                    </p>
+                    </span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/pemesanan') }}">
+
+                    <i class="bi nav-icon"></i>
+                    <span> Pemesanan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/produk_titipan') }}">
+
+                    <i class="fa-brands fa-product-hunt"></i>
+                    <span> Produk Titipan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/laporan') }}">
+
+                    <i class="fa-solid fa-book"></i>
+                    <span> Laporan</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/tentang') }}">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span> Tentang aplikasi</span>
+                </a>
+            </li>
+
 
 
 
@@ -366,20 +390,21 @@
                     <span></span>
                 </a>
             </li><!-- End F.A.Q Page Nav --> --}}
-
+            {{-- 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pages-contact.html">
                     <i class="bi bi-envelope"></i>
                     <span>Contact</span>
                 </a>
-            </li><!-- End Contact Page Nav -->
+            </li><!-- End Contact Page Nav --> --}}
 
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pages-login.html">
+                <a class="nav-link collapsed" href="{{ url('logout') }}">
+
                     <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Login</span>
+                    <span>Log out</span>
                 </a>
             </li><!-- End Login Page Nav -->
 
@@ -388,7 +413,6 @@
 
     </aside><!-- End Sidebar-->
     @yield('content')
-
 
     <!-- ======= Footer ======= -->
     @include('templates.footer')

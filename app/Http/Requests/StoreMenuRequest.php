@@ -24,9 +24,10 @@ class StoreMenuRequest extends FormRequest
         return [
             'nama_menu' => ['required', 'max:50', 'string'],
             'harga' => ['required', 'max:50', 'string'],
-            'image' => ['required', 'max:20', 'string'],
+            'image' => ['required', 'image'],
             'deskripsi' => ['required', 'max:50', 'string'],
-            
+            'jenis_id' => ['required', 'max:50', 'string']
+
         ];
     }
 
@@ -37,6 +38,7 @@ class StoreMenuRequest extends FormRequest
                 'harga.required' => 'Harga belum diisi!',
                 'image.required' => 'Image belum diisi!',
                 'deskripsi.required' => 'Deskripsi belum diisi!',
+                'jenis_id.required' => 'Deskripsi belum diisi!'
 
             ];
         }

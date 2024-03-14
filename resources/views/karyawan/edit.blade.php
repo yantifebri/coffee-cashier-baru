@@ -9,7 +9,7 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action=karyawan class="form-edit" >
+                <form method="post" action=karyawan class="form-edit">
                     @csrf
                     @method('PUT')
                     <div class="form-group row">

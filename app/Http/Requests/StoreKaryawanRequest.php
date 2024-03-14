@@ -28,7 +28,7 @@ class StoreKaryawanRequest extends FormRequest
             'agama' => ['required', 'max:50', 'string'],
             'status_nikah' => ['required', 'max:50', 'string'],
             'alamat' => ['required', 'max:50', 'string'],
-            'foto' => ['required', 'max:50', 'string']
+            // 'foto' => ['required', 'max:50', 'string']
         ];
     }
 
@@ -45,7 +45,7 @@ class StoreKaryawanRequest extends FormRequest
                 'agama.required' => 'Agama belum diisi!',
                 'status_nikah.required' => 'Agama belum diisi!',
                 'alamat.required' => 'Alamat belum diisi!',
-                'foto.required' => 'Foto belum diisi!'
+                // 'foto.required' => 'Foto belum diisi!'
 
             ];
         }

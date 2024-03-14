@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\JenisExport;
 use App\Models\Jenis;
 use App\Http\Requests\StoreJenisRequest;
 use App\Http\Requests\UpdateJenisRequest;
+use App\Imports\jenisImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
 
 class JenisController extends Controller
 {
@@ -21,8 +27,6 @@ class JenisController extends Controller
             $jenis = Jenis::latest()->get();
             return view('jenis.index', compact('jenis'));
         } catch (QueryException | Exception | PDOException $error) {
-            //    $this->failResponse($error->getMessage(), $error->getCode());
-            // return redirect()->back()->withErrors(['message' => 'Terjadi error']);
         }
     }
     /**
@@ -64,5 +68,22 @@ class JenisController extends Controller
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getCode());
         }
+    }
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return Excel::download(new JenisExport, $date . 'jenis.xlsx');
+    }
+    public function generatepdfjenis()
+    {
+        $jenis = Jenis::all();
+        $pdf = Pdf::loadView('jenis.data', compact('jenis'));
+        return $pdf->download('jenis.pdf');
+    }
+    public function importData(Request $request)
+    {
+
+        Excel::import(new jenisImport, $request->import);
+        return redirect()->back()->with('success', 'Data berhasil di import');
     }
 }

@@ -53,8 +53,7 @@
                         <form action="{{ route('karyawan.destroy', $p->id) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn delete-data btn-danger"><i
-                                    class="fas fa-trash"></i></button>
+                            <button type="button" class="btn delete-data btn-danger"><i class="fas fa-trash"></i></button>
                         </form>
                     </td>
 

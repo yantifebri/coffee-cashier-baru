@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MejaExport;
 use App\Models\Meja;
 use App\Http\Requests\StoreMejaRequest;
 use App\Http\Requests\UpdateMejaRequest;
+use App\Imports\MejaImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
+use Illuminate\Http\Request;
 
 class MejaController extends Controller
 {
@@ -42,12 +47,12 @@ class MejaController extends Controller
 
         $validated = $request->validated();
         DB::beginTransaction();
-       Meja::create($request->all());
+        Meja::create($request->all());
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
-    
+
     public function update(UpdateMejaRequest $request, $meja)
     {
         try {
@@ -69,5 +74,22 @@ class MejaController extends Controller
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getCode());
         }
+    }
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return Excel::download(new MejaExport, $date . 'meja.xlsx');
+    }
+    public function generatepdf()
+    {
+        $meja = Meja::all();
+        $pdf = Pdf::loadView('meja.data', compact('meja'));
+        return $pdf->download('meja.pdf');
+    }
+    public function importMeja(Request $request)
+    {
+
+        Excel::import(new MejaImport, $request->import);
+        return redirect()->back()->with('success', 'Data berhasil di import');
     }
 }

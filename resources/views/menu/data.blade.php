@@ -7,7 +7,8 @@
                 <th>Harga</th>
                 <th>Image</th>
                 <th>Deskripsi</th>
-              
+                <th>Jenis id</th>
+
                 <th>Action</th>
             </tr>
         </thead>
@@ -15,12 +16,13 @@
             @foreach ($menu as $p)
                 <tr>
                     <td>{{ $i = !isset($i) ? ($i = 1) : ++$i }}</td>
-                 
+
                     <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->harga }}</td>
-                    <td>{{ $p->image }}</td>
+                    <td><img src="{asset ('storage/' .$p->image)}" class="" alt="menu image" style="width: 60px"></td>
                     <td>{{ $p->deskripsi }}</td>
-                    
+                    <td>{{ $p->jenis_id }}</td>
+
                     {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
                     {{-- <td>
                 <div class="form-check form-switch">
@@ -30,10 +32,11 @@
             </td> --}}
 
                     <td>
-                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama_menu ="{{ $p->nama_menu }}"
-                            data-harga="{{ $p->harga}}" data-image ="{{ $p->image }}"
-                            data-deskripsi ="{{ $p->deskripsi }}" >
+                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal"
+                            data-target="#modalEdit" data-mode = "edit" data-id = "{{ $p->id }}"
+                            data-nama_menu ="{{ $p->nama_menu }}" data-harga="{{ $p->harga }}"
+                            data-image ="{{ $p->image }}" data-deskripsi ="{{ $p->deskripsi }}"
+                            data-jenis_id ="{{ $p->jenis_id }}">
                             <i class="fas fa-edit"></i>
                         </button>
                         <form action="{{ route('menu.destroy', $p->id) }}" method="post" style="display: inline">

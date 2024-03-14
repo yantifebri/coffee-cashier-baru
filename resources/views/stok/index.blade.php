@@ -22,16 +22,7 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    {{-- <h3 class="card-title">Karyawan </h3> --}}
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
 
-                    </div>
                 </div>
 
                 <div class="card-body">
@@ -57,20 +48,18 @@
                         </div>
                     @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalFormStok">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormStok">
                         <i class="fas fa-plus"></i> Tambah Stok
                     </button>
-                    {{-- <a href="{{route('eksportExcel')}}" class="btn btn-success">
-        <i class="fas fa-table"></i> Export XSLX
-      </a>
-      <a href="{{route('eksportPdf')}}" class="btn btn-danger">
-        <i class="fas fa-file-pdf"></i> Export PDF
-      </a>
-      <button href="{{route('import')}}" type="button" class="btn btn-warning btn-import" data-toggle="modal" data-target="#formImport">
-        <i class="fas fa-file-import"></i>   Import
-      </button> --}}
-
+                    <a href="{{ route('exportstok') }}" class="btn btn-success">
+                        <i class="fas fa-table"></i> Export XSLX
+                    </a>
+                    <a href="{{ route('pdf-export') }}" class="btn btn-danger">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </a>
+                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
+                        data-toggle="modal" data-target="#formImport">
+                        <i class="fas fa-file-import"></i> Import </button>
                     </tbody>
 
                     </table>
@@ -127,12 +116,12 @@
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
                 let jumlah = $(button).data('jumlah')
-              
+
 
 
                 $(this).find('#jumlah').val(jumlah)
-               
-               
+
+
 
                 $('.form-edit').attr('action', `/stok/${id}`)
             })

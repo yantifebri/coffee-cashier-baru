@@ -5,10 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Stok;
 use App\Http\Requests\StoreStokRequest;
 use App\Http\Requests\UpdateStokRequest;
+use App\Imports\StokImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
+use Illuminate\Support\Facades\Validator as FacadesValidator;
+use Illuminate\Http\Request;
+
 
 class StokController extends Controller
 {
@@ -69,5 +75,22 @@ class StokController extends Controller
         } catch (QueryException | Exception | PDOException $error) {
             $this->failResponse($error->getMessage(), $error->getCode());
         }
+    }
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return Excel::download(new StokController, $date . 'stok.xlsx');
+    }
+    public function generatepdf()
+    {
+        $stok = Stok::all();
+        $pdf = Pdf::loadView('stok.data', compact('stok'));
+        return $pdf->download('stok.pdf');
+    }
+    public function importData(Request $request)
+    {
+
+        Excel::import(new StokImport, $request->import);
+        return redirect()->back()->with('success', 'Data berhasil di import');
     }
 }
