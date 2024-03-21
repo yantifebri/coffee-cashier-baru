@@ -21,11 +21,13 @@ use App\Models\produk_titipan;
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login/cek', [UserController::class, 'cekLogin'])->name('cekLogin');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
 //route group
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/karyawan', KaryawanController::class);
     Route::resource('/kategori', KategoriController::class);
     Route::resource('/produk_titipan', ProdukTitipanController::class);
+    Route::get('/', [HomeController::class, 'index']);
 
     //admin
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
@@ -42,12 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::resource('/transaksi', TransaksiController::class);
-
-
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/tentang', [TentangApkController::class, 'index']);
 Route::get('/laporan', [TentangApkController::class, 'index']);
-
+Route::get('/tentang', [TentangApkController::class, 'index']);
 
 
 //kategori

@@ -22,11 +22,13 @@
                                         @foreach ($j->menu as $menu)
                                             <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
                                                 <div class="menu-item">
-                                                    <h4>{{ $menu->nama_menu }}</h4>
-                                                </div>
-                                                <div class="image-menu">
-                                                    <img src="{{ asset('storage/' . $menu->image) }}"
-                                                        alt="{{ $menu->nama_menu }} Image">
+                                                    <div class="menu-name">
+                                                        <h6 style=" font-weight: bold;">{{ $menu->nama_menu }}</h6>
+                                                    </div>
+                                                    <div class="image-menu">
+                                                        <img src="{{ asset('storage/' . $menu->image) }}"
+                                                            alt="{{ $menu->nama_menu }} Image" style="width: 70px;">
+                                                    </div>
                                                 </div>
                                             </li>
                                         @endforeach
@@ -232,17 +234,48 @@
 
     .menu-item {
         list-style-type: none;
-
+        display: flex;
+        /* Menjadikan menu-item sebagai flex container */
+        flex-wrap: wrap;
+        /* Mengizinkan item-item untuk melompat ke baris baru jika tidak cukup ruang */
         gap: 1em;
-
+        /* Memberikan jarak antara item-item */
+        align-items: center;
     }
 
     .menu-item li {
-        background-color: rgb(209, 157, 209);
-        padding: 10px 20px;
-
+        flex: 0 0 calc(33.33% - 20px);
+        /* Mengatur lebar item dengan 33.33% - 20px (untuk jarak antara item) */
+        margin-bottom: 20px;
+        /* Menambahkan margin bawah untuk jarak antar item */
+        padding: 10px;
+        /* Mengatur padding */
+        background-color: rgb(255, 255, 255);
+        /* Warna latar belakang */
+        border-radius: 5px;
+        /* Membuat sudut-sudut item menjadi bulat */
+        box-shadow: 1px 4px 4px 4px rgba(0, 0, 0, 0.1);
+        /* Menambahkan efek bayangan */
+        display: flex;
+        /* Menjadikan item sebagai flex container */
+        justify-content: center;
+        /* Mengatur posisi konten secara horizontal ke tengah */
+        align-items: center;
+        /* Mengatur posisi konten secara vertikal ke tengah */
+        width: 1500px;
+        /* Lebar tetap untuk setiap item */
+        height: 150px;
+        /* Tinggi tetap untuk setiap item */
     }
 
+    .menu-name {
+        padding: 5px;
+        /* Padding untuk nama menu */
+        text-align: center;
+        /* Pusatkan teks */
+
+
+    }
 
     .menu-itemm {
 
@@ -250,7 +283,6 @@
         margin: 10px;
         padding: 10px;
         background-color: rgb(255, 255, 255);
-
         border-radius: 5px;
         box-shadow: 1px 4px 4px 4px rgba(0, 0, 0, 0.1);
 
@@ -281,4 +313,6 @@
     .subtotal-info {
         margin-top: 10px;
     }
+
+
 </style>

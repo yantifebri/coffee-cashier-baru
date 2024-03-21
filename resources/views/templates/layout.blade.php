@@ -27,6 +27,9 @@
     <link href="{{ asset('admin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
+    <!-- dataTable -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -402,7 +405,6 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('logout') }}">
-
                     <i class="bi bi-box-arrow-in-right"></i>
                     <span>Log out</span>
                 </a>
@@ -416,3 +418,15 @@
 
     <!-- ======= Footer ======= -->
     @include('templates.footer')
+    <style>
+        *{
+          text-decoration: none !important;
+        }
+    
+        #myTable_wrapper {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+      </style>

@@ -19,9 +19,10 @@
 
                     <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->harga }}</td>
-                    <td><img src="{asset ('storage/' .$p->image)}" class="" alt="menu image" style="width: 60px"></td>
+                    <td><img src="{{ asset('storage/' . $p->image) }}" class="" alt="foto {{ $p->nama_menu }}"
+                            style="width: 60px"></td>
                     <td>{{ $p->deskripsi }}</td>
-                    <td>{{ $p->jenis_id }}</td>
+                    <td>{{ $p->jenis->nama_jenis }}</td>
 
                     {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
                     {{-- <td>

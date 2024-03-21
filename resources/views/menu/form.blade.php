@@ -43,18 +43,6 @@
                                 </select>
                             </div>
                         </div>
-
-
-
-                        {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
-                <div class="col-sm-8">
-                  <select class="form-control" name="terpenuhi" id="terpenuhi">
-                    <option value="0" >tidak</option>
-                    <option value="1" >ya</option>
-                   </select>
-                </div> --}}
-
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
