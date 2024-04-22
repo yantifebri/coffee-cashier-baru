@@ -20,61 +20,57 @@
 
 
             <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    {{-- <h3 class="card-title">Karyawan </h3> --}}
 
-                </div>
 
-                <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }} </li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#modalFormPelanggan">
-                        <i class="fas fa-plus"></i> Tambah Pelanggan
-                    </button>
-                    <a href="{{ route('export-pelanggan') }}" class="btn btn-success">
-                        <i class="fas fa-table"></i> Export XSLX
-                    </a>
-                    <a href="{{ route('pedeef') }}" class="btn btn-danger">
-                        <i class="fas fa-file-pdf"></i> Export PDF
-                    </a>
-                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
-                        data-toggle="modal" data-target="#formImport">
-                        <i class="fas fa-file-import"></i> Import </button>
-                    </tbody>
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }} </li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                    </table>
-                    @include('pelanggan.data')
-                    @include('pelanggan.edit')
-                    @include('pelanggan.form')
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                <!-- /.card-footer-->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormPelanggan">
+                    <i class="fas fa-plus"></i> Tambah Pelanggan
+                </button>
+                <a href="{{ route('export-pelanggan') }}" class="btn btn-success">
+                    <i class="fas fa-table"></i> Export XSLX
+                </a>
+                <a href="{{ route('pedeef') }}" class="btn btn-danger">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </a>
+                <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
+                    data-target="#formImport">
+                    <i class="fas fa-file-import"></i> Import </button>
+                </tbody>
+
+                </table>
+                @include('pelanggan.data')
+                @include('pelanggan.edit')
+                @include('pelanggan.form')
             </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+                Footer
+            </div>
+            <!-- /.card-footer-->
+
             <!-- /.card -->
         </main><!-- End #main -->
     </section>

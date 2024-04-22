@@ -12,16 +12,16 @@
                 <form method="post" action="stok">
                     @csrf
                     <div class="form-group row">
-                        <label for="jumlah" class="col-sm-4 col-form-label">Jumlah</label>
-                        <div class="col-sm-8">
+                        <label for="jumlah" class="form-label">Jumlah</label>
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="jumlah" name='jumlah'>
                         </div>
 
 
 
 
-                        {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
-                <div class="col-sm-8">
+                        {{-- <label for="terpenuhi" class="form-label">Terpenuh</label>
+                <div class="mb-3">
                   <select class="form-control" name="terpenuhi" id="terpenuhi">
                     <option value="0" >tidak</option>
                     <option value="1" >ya</option>

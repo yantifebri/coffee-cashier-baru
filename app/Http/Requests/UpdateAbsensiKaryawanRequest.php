@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateMenuRequest extends FormRequest
+class UpdateAbsensiKaryawanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,7 @@ class UpdateMenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nama_menu' => 'required|string',
-            'harga' => 'required|string',
-            'deskripsi' => 'required|string'
+            //
         ];
     }
 }

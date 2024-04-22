@@ -20,12 +20,8 @@
 
 
             <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    {{-- <h3 class="card-title">Karyawan </h3> --}}
-                   
-                </div>
-
+       
+               
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -76,7 +72,7 @@
                     Footer
                 </div>
                 <!-- /.card-footer-->
-            </div>
+           
             <!-- /.card -->
         </main><!-- End #main -->
     </section>

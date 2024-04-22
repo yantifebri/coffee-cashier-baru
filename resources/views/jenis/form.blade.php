@@ -15,19 +15,9 @@
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="nama_jenis" name='nama_jenis'>
                         </div>
-
-                        {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
-                <div class="col-sm-8">
-                  <select class="form-control" name="terpenuhi" id="terpenuhi">
-                    <option value="0" >tidak</option>
-                    <option value="1" >ya</option>
-                   </select>
-                </div> --}}
-
-
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
             </div>

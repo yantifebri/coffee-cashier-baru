@@ -80,8 +80,8 @@ class KategoriController extends Controller
     }
     public function generatepdf()
     {
-        $kategori = kategori::all();
-        $pdf = Pdf::loadView('kategori.data', compact('kategori'));
+        $data = kategori::all();
+        $pdf = Pdf::loadView('kategori.exportPdf', compact('data'));
         return $pdf->download('kategori.pdf');
     }
     // public function importData(Request $request)

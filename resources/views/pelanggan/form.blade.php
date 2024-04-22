@@ -12,30 +12,30 @@
                 <form method="post" action="pelanggan">
                     @csrf
                     <div class="form-group row">
-                        <label for="nama" class="col-sm-4 col-form-label">Nama Pelanggan</label>
-                        <div class="col-sm-8">
+                        <label for="nama" class="form-label">Nama Pelanggan</label>
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="nama" name='nama'>
                         </div>
 
-                        <label for="email" class="col-sm-4 col-form-label">Email</label>
-                        <div class="col-sm-8">
+                        <label for="email" class="form-label">Email</label>
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="email" name='email'>
                         </div>
 
-                        <label for="nomor_telepon" class="col-sm-4 col-form-label">Nomor Telepon</label>
-                        <div class="col-sm-8">
+                        <label for="nomor_telepon" class="form-label">Nomor Telepon</label>
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="nomor_telepon" name='nomor_telepon'>
                         </div>
 
-                        <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
-                        <div class="col-sm-8">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <div class="mb-3">
                             <input type="text" class="form-control" id="alamat" name='alamat'>
                         </div>
 
-                        
 
-                        {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
-                <div class="col-sm-8">
+
+                        {{-- <label for="terpenuhi" class="form-label">Terpenuh</label>
+                <div class="mb-3">
                   <select class="form-control" name="terpenuhi" id="terpenuhi">
                     <option value="0" >tidak</option>
                     <option value="1" >ya</option>
@@ -45,7 +45,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
             </div>

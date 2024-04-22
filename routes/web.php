@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiKaryawanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -15,12 +16,14 @@ use App\Http\Controllers\StokController;
 use App\Http\Controllers\TentangApkController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
+use App\Models\AbsensiKaryawan;
 use App\Models\produk_titipan;
 
 //login
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login/cek', [UserController::class, 'cekLogin'])->name('cekLogin');
-Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
 
 //route group
 Route::group(['middleware' => 'auth'], function () {
@@ -46,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('/transaksi', TransaksiController::class);
 Route::get('/laporan', [TentangApkController::class, 'index']);
 Route::get('/tentang', [TentangApkController::class, 'index']);
+Route::resource('/absensi', AbsensiKaryawanController::class);
 
 
 //kategori

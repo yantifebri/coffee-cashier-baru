@@ -370,6 +370,14 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ url('/absensi') }}">
+
+                    <i class="fa-brands fa-product-hunt"></i>
+                    <span> Absensi</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('/laporan') }}">
 
                     <i class="fa-solid fa-book"></i>

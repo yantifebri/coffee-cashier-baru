@@ -52,7 +52,7 @@ class TransaksiController extends Controller
             // return response()->json(['status' => false, 'message' => 'Pemesanan Gagal!']);
         }
     }
-
+ 
 
 
     public function faktur($nofaktur)

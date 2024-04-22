@@ -12,15 +12,6 @@
                 <tr>
                     <td>{{ $i = !isset($i) ? ($i = 1) : ++$i }}</td>
                     <td>{{ $p->nama_kategori }}</td>
-
-                    {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
-                    {{-- <td>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox"  id="flexSwitchCheckDefault" @if ($p->terpenuhi)checked @endif disabled>
-                    <label  class="form-check-label" for="flexSwitchCheckDefault"></label>
-                </div>
-            </td> --}}
-
                     <td>
                         <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
                             data-mode = "edit" data-id = "{{ $p->id }}" data-nama_kategori ="{{ $p->nama_kategori }}">

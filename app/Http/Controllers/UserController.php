@@ -16,7 +16,7 @@ class UserController extends Controller
                     return redirect()->intended('/');
                     break;
                 case '2':
-                    return redirect()->intended('pembelian');
+                    return redirect()->intended('pemesanan');
                     break;
             }
         }

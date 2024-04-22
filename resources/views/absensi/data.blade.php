@@ -3,28 +3,41 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Nama</th>
+                <th>Nama Karyawan </th>
+                <th>Tanggal Masuk</th>
+                <th>Waktu Masuk</th>
+                <th>Status</th>
+                <th>Waktu Keluar</th>
+
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($jenis as $p)
+            @foreach ($absensiKaryawan as $p)
                 <tr>
                     <td>{{ $i = !isset($i) ? ($i = 1) : ++$i }}</td>
-                    <td>{{ $p->nama_jenis }}</td>
+
+                    <td>{{ $p->namaKaryawan }}</td>
+                    <td>{{ $p->tanggalMasuk }}</td>
+                    <td>{{ $p->waktuMasuk }}</td>
+                    <td>{{ $p->status }}</td>
+                    <td>{{ $p->waktuKeluar }}</td>
                     <td>
                         <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama_jenis ="{{ $p->nama_jenis }}">
-
+                            data-mode = "edit" data-id = "{{ $p->id }}" data-namaKaryawan ="{{ $p->namakaryawan }}"
+                            data-tanggalMasuk ="{{ $p->tanggalMasuk }}" data-waktuMasuk="{{ $p->waktuMasuk }}"
+                            data-status ="{{ $p->status }}" data-waktuKeluar ="{{ $p->waktuKeluar }}">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <form action="{{ route('jenis.destroy', $p->id) }}" method="post" style="display: inline">
+                        <form action="{{ route('absensi.destroy', $p->id) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="btn delete-data btn-danger"><i
                                     class="fas fa-trash"></i></button>
                         </form>
                     </td>
+
+
                 </tr>
             @endforeach
         </tbody>

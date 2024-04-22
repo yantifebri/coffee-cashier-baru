@@ -11,18 +11,12 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Stok</li>
+                        <li class="breadcrumb-item active">Jenis</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
 
-
-
-
             <!-- Default box -->
-         
-               
-
                 <div class="card-body">
                     @if (session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -46,29 +40,33 @@
                         </div>
                     @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormStok">
-                        <i class="fas fa-plus"></i> Tambah Stok
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambah">
+                        <i class="fas fa-plus"></i> Tambah Absensi
                     </button>
-                    <a href="{{ route('exportstok') }}" class="btn btn-success">
+                    <a href="{{ route('export-excel-jenis') }}" class="btn btn-success">
                         <i class="fas fa-table"></i> Export XSLX
                     </a>
-                    <a href="{{ route('pdf-export') }}" class="btn btn-danger">
+                    <a href="{{ route('export-pdf-jenis') }}" class="btn btn-danger">
                         <i class="fas fa-file-pdf"></i> Export PDF
                     </a>
                     <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
                         data-toggle="modal" data-target="#formImport">
-                        <i class="fas fa-file-import"></i> Import </button>
+                        <i class="fas fa-file-import"></i> Import
+                    </button>
+                    @include('absensi.data')
                     </tbody>
 
                     </table>
-                    @include('stok.data')
-                    @include('stok.edit')
-                    @include('stok.form')
+                    @include('absensi.edit')
+
+                    @include('absensi.form')
+
+
                 </div>
+
                 <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
+
+
                 <!-- /.card-footer-->
           
             <!-- /.card -->
@@ -91,12 +89,12 @@
             $('#myTable').DataTable()
         })
         $('.delete-data').on('click', function(e) {
-            const jumlah = $(this).closest('tr').find('td:eq(1)').text();
+            const namaKaryawan = $(this).closest('tr').find('td:eq(1)').text();
             console.log('tes')
             Swal.fire({
                 icon: 'error',
                 title: 'Hapus Data',
-                html: `Apakah data <b>${jumlah}</b> akan di hapus?`,
+                html: `Apakah data <b>${namaKaryawan}</b> akan di hapus?`,
                 confirmButtonText: 'Ya',
                 denyButtonText: 'Tidak',
                 'showDenyButton': true,
@@ -113,15 +111,12 @@
             $('#modalEdit').on('show.bs.modal', function(e) {
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
-                let jumlah = $(button).data('jumlah')
+                let nama_jenis = $(button).data('nama_jenis')
+                console.log(nama_jenis)
 
+                $(this).find('#nama_jenis').val(nama_jenis)
 
-
-                $(this).find('#jumlah').val(jumlah)
-
-
-
-                $('.form-edit').attr('action', `/stok/${id}`)
+                $('.form-edit').attr('action', `/jenis/${id}`)
             })
         })
     </script>

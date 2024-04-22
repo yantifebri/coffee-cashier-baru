@@ -20,62 +20,56 @@
 
 
             <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    {{-- <h3 class="card-title">Karyawan </h3> --}}
 
-                </div>
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }} </li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }} </li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormMenu">
+                    <i class="fas fa-plus"></i> Tambah Menu
+                </button>
+                <a href="{{ route('exportmenu') }}" class="btn btn-success">
+                    <i class="fas fa-table"></i> Export XSLX
+                </a>
+                <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </a>
+                <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
+                    data-target="#formImport">
+                    <i class="fas fa-file-import"></i> Import
+                </button>
+                @include('menu.data')
+                </tbody>
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormMenu">
-                        <i class="fas fa-plus"></i> Tambah Menu
-                    </button>
-                    <a href="{{ route('exportmenu') }}" class="btn btn-success">
-                        <i class="fas fa-table"></i> Export XSLX
-                    </a>
-                    <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
-                        <i class="fas fa-file-pdf"></i> Export PDF
-                    </a>
-                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
-                        data-toggle="modal" data-target="#formImport">
-                        <i class="fas fa-file-import"></i> Import
-                    </button>
+                </table>
 
-                    </tbody>
 
-                    </table>
-                    @include('menu.data')
-                    @include('menu.edit')
-                    @include('menu.form')
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                <!-- /.card-footer-->
+                @include('menu.form')
+
+
             </div>
+            @include('menu.edit')
+            <!-- /.card-body -->
+
             <!-- /.card -->
         </main><!-- End #main -->
     </section>
@@ -120,7 +114,6 @@
                 let id = $(button).data('id')
                 let nama_menu = $(button).data('nama_menu')
                 let harga = $(button).data('harga')
-                let image = $(button).data('image')
                 let deskripsi = $(button).data('deskripsi')
                 let jenis_id = $(button).data('jenis_id')
 
@@ -128,7 +121,6 @@
 
                 $(this).find('#nama_menu').val(nama_menu)
                 $(this).find('#harga').val(harga)
-                $(this).find('#image').val(image)
                 $(this).find('#deskripsi').val(deskripsi)
                 $(this).find('#jenis_id').val(jenis_id)
 

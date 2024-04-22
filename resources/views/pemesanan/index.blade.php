@@ -21,7 +21,7 @@
                                     <ul class="menu-item" style="cursor: pointer;">
                                         @foreach ($j->menu as $menu)
                                             <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
-                                                <div class="menu-item">
+                                                <div class="menu-itemmm">
                                                     <div class="menu-name">
                                                         <h6 style=" font-weight: bold;">{{ $menu->nama_menu }}</h6>
                                                     </div>
@@ -313,6 +313,4 @@
     .subtotal-info {
         margin-top: 10px;
     }
-
-
 </style>

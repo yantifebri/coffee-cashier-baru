@@ -15,25 +15,17 @@
                         <label for="nama_kategori" class="col-sm-4 col-form-label">Nama Kategori</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="nama_kategori" name='nama_kategori'>
-
                         </div>
-                        {{-- <label for="terpenuhi" class="col-sm-4 col-form-label">Terpenuh</label>
-                <div class="col-sm-8">
-                  <select class="form-control" name="terpenuhi" id="terpenuhi">
-                    <option value="0" >tidak</option>
-                    <option value="1" >ya</option>
-                   </select>
-                </div> --}}
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Tambahkan</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
             </div>
         </div>
     </div>
-    </form>
+</div>
+</form>
 
 
 
@@ -41,7 +33,7 @@
 
 
 
-  <!-- Modal -->
+<!-- Modal -->
 {{-- <div class="modal fade" id="formImport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -74,5 +66,4 @@
   </form> --}}
 
 
-  {{-- import --}}
- 
+{{-- import --}}

@@ -8,7 +8,6 @@
                 <th>Image</th>
                 <th>Deskripsi</th>
                 <th>Jenis id</th>
-
                 <th>Action</th>
             </tr>
         </thead>
@@ -20,7 +19,7 @@
                     <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->harga }}</td>
                     <td><img src="{{ asset('storage/' . $p->image) }}" class="" alt="foto {{ $p->nama_menu }}"
-                            style="width: 60px"></td>
+                            style="width: 60px;"></td>
                     <td>{{ $p->deskripsi }}</td>
                     <td>{{ $p->jenis->nama_jenis }}</td>
 
@@ -33,8 +32,8 @@
             </td> --}}
 
                     <td>
-                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal"
-                            data-target="#modalEdit" data-mode = "edit" data-id = "{{ $p->id }}"
+                        <button type="button" class="btn btn-primary btn-edit" data-bs-toggle="modal"
+                            data-bs-target="#modalEdit" data-mode = "edit" data-id = "{{ $p->id }}"
                             data-nama_menu ="{{ $p->nama_menu }}" data-harga="{{ $p->harga }}"
                             data-image ="{{ $p->image }}" data-deskripsi ="{{ $p->deskripsi }}"
                             data-jenis_id ="{{ $p->jenis_id }}">

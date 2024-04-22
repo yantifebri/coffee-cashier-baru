@@ -7,73 +7,64 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Dashboard</h1>
-                <nav>
+                <h1>Jenis</h1>
+                <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Jenis</li>
+                        <li class="breadcrumb-item">Data</li>
+                        <li class="breadcrumb-item active"><a href="/jenis">Jenis</a></li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
 
             <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    {{-- <h3 class="card-title">Karyawan </h3> --}}
-                   
-                </div>
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }} </li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }} </li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormJenis">
+                    <i class="fas fa-plus"></i> Tambah Jenis
+                </button>
+                <a href="{{ route('export-excel-jenis') }}" class="btn btn-success">
+                    <i class="fas fa-table"></i> Export XSLX
+                </a>
+                <a href="{{ route('export-pdf-jenis') }}" class="btn btn-danger">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </a>
+                <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
+                    data-target="#formImport">
+                    <i class="fas fa-file-import"></i> Import
+                </button>
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormJenis">
-                        <i class="fas fa-plus"></i> Tambah Jenis
-                    </button>
-                    <a href="{{ route('export-excel-jenis') }}" class="btn btn-success">
-                        <i class="fas fa-table"></i> Export XSLX
-                    </a>
-                    <a href="{{ route('export-pdf-jenis') }}" class="btn btn-danger">
-                        <i class="fas fa-file-pdf"></i> Export PDF
-                    </a>
-                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
-                        data-toggle="modal" data-target="#formImport">
-                        <i class="fas fa-file-import"></i> Import
-                    </button>
+                </tbody>
 
-                    </tbody>
+                </table>
+                @include('jenis.data')
+                @include('jenis.edit')
 
-                    </table>
-                    @include('jenis.data')
-                    @include('jenis.edit')
-
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                @include('jenis.form')
-                <!-- /.card-footer-->
             </div>
+            <!-- /.card-body -->
+            @include('jenis.form')
+            <!-- /.card-footer-->
+
             <!-- /.card -->
         </main><!-- End #main -->
     </section>

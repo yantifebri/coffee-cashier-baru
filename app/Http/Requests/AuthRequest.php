@@ -29,7 +29,7 @@ class AuthRequest extends FormRequest
     public function messages()
     {
         return [
-         'email.required'=> 'Email harus diisi!',
+         'email'=> 'Email harus diisi!',
          'password'=> 'Password harus diisi!'
         ];
     }

@@ -12,28 +12,28 @@
                 <form method="post" action="menu" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <div class="col-sm-8">
-                            <label for="nama_menu" class="col-sm-4 col-form-label">Nama Menu</label>
+                        <div class="mb-3">
+                            <label for="nama_menu" class="form-label">Nama Menu</label>
                             <input type="text" class="form-control" id="nama_menu" name='nama_menu'>
                         </div>
 
-                        <div class="col-sm-8">
-                            <label for="harga" class="col-sm-4 col-form-label">Harga</label>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Harga</label>
                             <input type="text" class="form-control" id="harga" name='harga'>
                         </div>
 
-                        <div class="col-sm-8">
-                            <label for="image" class="col-sm-4 col-form-label">Image</label>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
                             <input type="file" class="form-control" id="image" name='image' accept="image/*">
                         </div>
 
-                        <div class="col-sm-8">
-                            <label for="deskripsi" class="col-sm-4 col-form-label">Deskripsi</label>
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name='deskripsi'>
                         </div>
 
-                        <div class="col-sm-8">
-                            <label for="jenis_id" class="col-sm-4 col-form-label">Jenis id</label>
+                        <div class="mb-3">
+                            <label for="jenis_id" class="form-label">Jenis id</label>
                             <div class="input-group">
                                 <select class="form-select" name="jenis_id" id="jenis_id">
                                     <option selected disabled>Pilih Jenis</option>
