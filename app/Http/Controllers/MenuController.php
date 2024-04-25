@@ -10,6 +10,7 @@ use App\Imports\MenuImport;
 use App\Models\jenis;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Client\Request as ClientRequest;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +19,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
 use Illuminate\Support\Facades\Validator as FacadesValidator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View as FacadesView;
+use Illuminate\View\View as ViewView;
 
 class MenuController extends Controller
 {
@@ -48,7 +51,6 @@ class MenuController extends Controller
 
         $validated = $request->validated();
         DB::beginTransaction();
-        $menu = Menu::create($request->all());
 
         //mendapatkan file yg diunggal peggguna
         $file = $request->file('image');
@@ -56,6 +58,8 @@ class MenuController extends Controller
         $file_name = $file->getClientOriginalName(); //nama file asli
         $file_path = $file->storeAs('ya', $file_name); //nama file asli
         //simmpan nama file ke dalam kolom image di database
+        $menu = Menu::create($request->all());
+
         $menu->image = $file_path;
         $menu->save();
 
@@ -106,7 +110,8 @@ class MenuController extends Controller
         $pdf = Pdf::loadView('menu.exportPdf', compact('data'));
         return $pdf->download('menu.pdf');
     }
-    public function importData(Request $request)
+
+    public function importDataMenu(Request $request)
     {
 
         $validator = FacadesValidator::make($request->all(), [

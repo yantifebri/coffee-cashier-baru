@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsensiKaryawanController;
+use App\Http\Controllers\contactUsController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -22,7 +23,7 @@ use App\Models\produk_titipan;
 //login
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login/cek', [UserController::class, 'cekLogin'])->name('cekLogin');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 //route group
@@ -50,6 +51,7 @@ Route::resource('/transaksi', TransaksiController::class);
 Route::get('/laporan', [TentangApkController::class, 'index']);
 Route::get('/tentang', [TentangApkController::class, 'index']);
 Route::resource('/absensi', AbsensiKaryawanController::class);
+Route::resource('/contactUs', contactUsController::class);
 
 
 //kategori
@@ -63,7 +65,7 @@ Route::post('jenis/import', [JenisController::class, 'importData'])->name('bebek
 //menu
 Route::get('export/menu', [MenuController::class, 'exportData'])->name('exportmenu');
 Route::get('generate/menu', [MenuController::class, 'generatepdf'])->name('menu-pdf');
-Route::post('menu/import', [MenuController::class, 'importData'])->name('bebek');
+Route::post('menu/import', [MenuController::class, 'importDataMenu'])->name('import-menu');
 //stok
 Route::get('export/stok', [StokController::class, 'exportData'])->name('exportstok');
 Route::get('generate/stok', [StokController::class, 'generatepdf'])->name('pdf-export');
@@ -76,6 +78,11 @@ Route::post('pelanggan/import', [PelangganController::class, 'importData'])->nam
 Route::get('export/meja', [MejaController::class, 'exportData'])->name('ikan');
 Route::get('generate/meja', [MejaController::class, 'generatepdf'])->name('hiu');
 Route::post('meja/import', [MejaController::class, 'importMeja'])->name('bebek');
+//absen
+Route::get('export/absen', [AbsensiKaryawanController::class, 'exportDataAbsen'])->name('export-excell-absen');
+Route::get('generate/absen', [AbsensiKaryawanController::class, 'pdfexport'])->name('absen-pdf-export');
+Route::post('absensi/import', [AbsensiKaryawanController::class, 'importDataAbsen'])->name('import-absen');
+Route::post('update-status', [AbsensiKaryawanController::class, 'updateStatus']);
 
 
 

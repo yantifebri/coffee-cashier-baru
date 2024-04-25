@@ -2,23 +2,22 @@
     <thead>
         <tr>
             <th>No</th>
-            <th>Nama Menu</th>
-            <th>Harga</th>
-            <th>Image</th>
-            <th>Deskripsi</th>
-            <th>Jenis id</th>
+            <th>Nama</th>
+            <th>Tanggal Masuk</th>
+            <th>Waktu Masuk</th>
+            <th>Status</th>
+            <th>Waktu Selesai</th>
         </tr>
     </thead>
     <tbody>
-
         @foreach ($data as $index => $j)
             <tr>
                 <td>{{ $index + 1 }}</td>
-                <td>{{ $j->nama_menu }}</td>
-                <td>{{ $j->harga }}</td>
-                <td>{{ $j->image }}</td>
-                <td>{{ $j->deskripsi }}</td>
-                <td>{{ $j->jenis_id }}</td>
+                <td>{{ $j->namaKaryawan }}</td>
+                <td>{{ $j->tanggalMasuk }}</td>
+                <td>{{ $j->waktuMasuk }}</td>
+                <td>{{ $j->status }}</td>
+                <td>{{ $j->waktuKeluar }}</td>
             </tr>
         @endforeach
     </tbody>

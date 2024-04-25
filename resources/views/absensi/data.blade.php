@@ -7,7 +7,7 @@
                 <th>Tanggal Masuk</th>
                 <th>Waktu Masuk</th>
                 <th>Status</th>
-                <th>Waktu Keluar</th>
+                <th>Waktu Selesai Kerja</th>
 
                 <th>Action</th>
             </tr>
@@ -21,12 +21,13 @@
                     <td>{{ $p->tanggalMasuk }}</td>
                     <td>{{ $p->waktuMasuk }}</td>
                     <td>{{ $p->status }}</td>
+
                     <td>{{ $p->waktuKeluar }}</td>
                     <td>
                         <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-namaKaryawan ="{{ $p->namakaryawan }}"
-                            data-tanggalMasuk ="{{ $p->tanggalMasuk }}" data-waktuMasuk="{{ $p->waktuMasuk }}"
-                            data-status ="{{ $p->status }}" data-waktuKeluar ="{{ $p->waktuKeluar }}">
+                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama_karyawan ="{{ $p->namaKaryawan }}"
+                            data-tanggal_masuk ="{{ $p->tanggalMasuk }}" data-waktu_masuk="{{ $p->waktuMasuk }}"
+                            data-status ="{{ $p->status }}" data-waktu_keluar ="{{ $p->waktuKeluar }}">
                             <i class="fas fa-edit"></i>
                         </button>
                         <form action="{{ route('absensi.destroy', $p->id) }}" method="post" style="display: inline">

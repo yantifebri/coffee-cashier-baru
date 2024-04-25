@@ -22,27 +22,8 @@ class StoreAbsensiKaryawanRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'namaKaryawan' => ' required',
-            'tanggalMasuk' => 'required', 
-            'waktuMasuk' =>'required', 
-            'status' =>'required', 
-            'waktuKeluar' => 'required'
-
-
+//
         ];
     }
 
-    public function messages()
-    { {
-            return [
-                'namaKaryawan.required' => 'Nama karyawan belum diisi!',
-                'tanggalMasuk.required' => 'Tanggal masuk belum diisi!',
-                'waktuMasuk.required' => 'Waktu masuk belum diisi!',
-                'status.required' => 'Status belum diisi!',
-                'waktuKeluar.required' => 'Waktu keluar belum diisi!',
-
-
-            ];
-        }
-    }
 }

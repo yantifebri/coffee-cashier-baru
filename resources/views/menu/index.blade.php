@@ -53,7 +53,7 @@
                 <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
-                <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
+                <button href="{{ route('import-menu') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
                     data-target="#formImport">
                     <i class="fas fa-file-import"></i> Import
                 </button>
@@ -114,6 +114,7 @@
                 let id = $(button).data('id')
                 let nama_menu = $(button).data('nama_menu')
                 let harga = $(button).data('harga')
+
                 let deskripsi = $(button).data('deskripsi')
                 let jenis_id = $(button).data('jenis_id')
 
@@ -121,6 +122,7 @@
 
                 $(this).find('#nama_menu').val(nama_menu)
                 $(this).find('#harga').val(harga)
+
                 $(this).find('#deskripsi').val(deskripsi)
                 $(this).find('#jenis_id').val(jenis_id)
 

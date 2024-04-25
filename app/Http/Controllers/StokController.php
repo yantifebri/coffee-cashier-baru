@@ -6,6 +6,7 @@ use App\Models\Stok;
 use App\Http\Requests\StoreStokRequest;
 use App\Http\Requests\UpdateStokRequest;
 use App\Imports\StokImport;
+use App\Models\Menu;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
@@ -23,12 +24,19 @@ class StokController extends Controller
      */
     public function index()
     {
+        // try {
+        //     $stok = Stok::latest()->get();
+        //     return view('stok.index', compact('stok'));
+        // } catch (QueryException | Exception | PDOException $error) {
+
+        // }
+        $stok = Stok::all();
         try {
-            $stok = Stok::latest()->get();
-            return view('stok.index', compact('stok'));
-        } catch (QueryException | Exception | PDOException $error) {
-            //    $this->failResponse($error->getMessage(), $error->getCode());
-            // return redirect()->back()->withErrors(['message' => 'Terjadi error']);
+            $data['stok'] = Stok::with(['menu'])->get();
+            $data['menu'] = Menu::get();
+            return view('stok.index')->with($data);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['message' => 'terjadi kesalahan']);
         }
     }
 
@@ -48,12 +56,12 @@ class StokController extends Controller
 
         $validated = $request->validated();
         DB::beginTransaction();
-       Stok::create($request->all());
+        Stok::create($request->all());
         DB::commit();
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
 
-    
+
     public function update(UpdateStokRequest $request, $stok)
     {
         try {

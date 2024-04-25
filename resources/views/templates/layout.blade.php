@@ -28,8 +28,9 @@
     <link href="{{ asset('admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
     <!-- dataTable -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"
+        type="text/css">
+    <link href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -305,63 +306,88 @@
                 </a>
             </li><!-- End Profile Page Nav --> --}}
 
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/kategori') }}">
-                    <i class="bi bi-layers"></i>
-                    <span> Kategori</span>
-                </a>
-            </li>
-
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/jenis') }}">
-                    <i class="bi bi-collection"></i>
-                    <span> Jenis</span>
-                </a>
-            </li>
+            @if (Auth::user()->level == 1)
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/kategori') }}">
+                        <i class="bi bi-layers"></i>
+                        <span> Kategori</span>
+                    </a>
+                </li>
 
 
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/menu') }}">
-                    <i class="bi bi-cup-hot"></i>
-                    <span> Menu</span>
-                </a>
-            </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/jenis') }}">
+                        <i class="bi bi-collection"></i>
+                        <span> Jenis</span>
+                    </a>
+                </li>
 
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/stok') }}">
-                    <i class="bi bi-box"></i>
-                    <span> Stok</span>
-                </a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/pelanggan') }}">
-                    <i class="bi bi-person"></i>
-                    <span> Pelanggan</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/menu') }}">
+                        <i class="bi bi-cup-hot"></i>
+                        <span> Menu</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
-                <a href="{{ url('/meja') }}" class="nav-link collapsed">
-                    <i class="nav-icon fas fa-solid fa-store"></i>
-                    <span>
-                        Meja
-                    </span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/pemesanan') }}">
 
-                    <i class="bi nav-icon"></i>
-                    <span> Pemesanan</span>
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/stok') }}">
+                        <i class="bi bi-box"></i>
+                        <span> Stok</span>
+                    </a>
+                </li>
 
-            <li class="nav-item">
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/pelanggan') }}">
+                        <i class="bi bi-person"></i>
+                        <span> Pelanggan</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/meja') }}" class="nav-link collapsed">
+                        <i class="nav-icon fas fa-solid fa-store"></i>
+                        <span>
+                            Meja
+                        </span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/laporan') }}">
+
+                        <i class="fa-solid fa-book"></i>
+                        <span> Laporan</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/contactUs') }}">
+
+                        <i class="fa-solid fa-address-book"></i>
+                        <span> Contact Us</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/tentang') }}">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span> Tentang aplikasi</span>
+                    </a>
+                </li>
+            @endif
+            @if (Auth::user()->level == 2)
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/pemesanan') }}">
+                        <i class="nav-icon fas   fa-cart-shopping"></i>
+                        <span> Pemesanan</span>
+                    </a>
+                </li>
+            @endif
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('/produk_titipan') }}">
 
                     <i class="fa-brands fa-product-hunt"></i>
@@ -372,25 +398,13 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ url('/absensi') }}">
 
-                    <i class="fa-brands fa-product-hunt"></i>
-                    <span> Absensi</span>
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <span> Absensi Kerja</span>
                 </a>
-            </li>
+            </li> --}}
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/laporan') }}">
 
-                    <i class="fa-solid fa-book"></i>
-                    <span> Laporan</span>
-                </a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/tentang') }}">
-                    <i class="fa-solid fa-circle-info"></i>
-                    <span> Tentang aplikasi</span>
-                </a>
-            </li>
 
 
 
@@ -427,14 +441,14 @@
     <!-- ======= Footer ======= -->
     @include('templates.footer')
     <style>
-        *{
-          text-decoration: none !important;
+        * {
+            text-decoration: none !important;
         }
-    
+
         #myTable_wrapper {
             margin-bottom: 20px;
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px;
-        }
-      </style>
+        }
+    </style>

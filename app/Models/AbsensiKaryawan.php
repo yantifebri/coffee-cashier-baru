@@ -10,8 +10,5 @@ class AbsensiKaryawan extends Model
     use HasFactory;
 
     protected $table = 'absensi_karyawan';
-    protected $fillable = ['namaKaryawan', 'tanggalMasuk', 'waktuMasuk', 'status', 'waktuKeluar'];
-
-    
-    
+    protected $guarded = [' '];
 }

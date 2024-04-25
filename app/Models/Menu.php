@@ -9,12 +9,16 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'menu';
-    protected $fillable = ['nama_menu', 'harga', 'deskripsi', 'jenis_id'];
+    protected $fillable = ['nama_menu', 'harga', 'image', 'deskripsi', 'jenis_id'];
 
 
 
     public function jenis()
     {
         return $this->belongsTo(jenis::class, 'jenis_id');
+    }
+    public function stok()
+    {
+        return $this->belongsTo(stok::class,'id','menu_id');
     }
 }
