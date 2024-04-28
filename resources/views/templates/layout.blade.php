@@ -306,7 +306,7 @@
                 </a>
             </li><!-- End Profile Page Nav --> --}}
 
-            @if (Auth::user()->level == 1)
+            @if (Auth::check() && Auth::user()->level == 1)
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/kategori') }}">
                         <i class="bi bi-layers"></i>
@@ -343,7 +343,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/pelanggan') }}">
-                        <i class="bi bi-person"></i>
+                        <i class="fa-solid fa-users-rays"></i>
                         <span> Pelanggan</span>
                     </a>
                 </li>
@@ -378,8 +378,14 @@
                         <span> Tentang aplikasi</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ url('/register') }}">
+                        <i class="fa-solid fa-users-line"></i>
+                        <span>User Manager</span>
+                    </a>
+                </li>
             @endif
-            @if (Auth::user()->level == 2)
+            @if (Auth::check() && Auth::user()->level == 2)
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/pemesanan') }}">
                         <i class="nav-icon fas   fa-cart-shopping"></i>

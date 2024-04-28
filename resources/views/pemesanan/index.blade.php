@@ -20,11 +20,18 @@
                                     <h3>{{ $j->nama_jenis }}</h3>
                                     <ul class="menu-item" style="cursor: pointer;">
                                         @foreach ($j->menu as $menu)
-                                            <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}">
+                                            <li data-harga="{{ $menu->harga }}" data-id="{{ $menu->id }}" >
                                                 <div class="menu-itemmm">
                                                     <div class="menu-name">
                                                         <h6 style=" font-weight: bold;">{{ $menu->nama_menu }}</h6>
                                                     </div>
+
+                                                    @if($menu->stok->jumlah > 0)
+                                                    <h6 style=" font-weight: bold;">{{ $menu->stok->jumlah }}</h6>
+                                                    @else
+                                                    <h6 style="font-size: 13px; color: red;">Stok Habis</h6>
+                                                    @endif
+
                                                     <div class="image-menu">
                                                         <img src="{{ asset('storage/' . $menu->image) }}"
                                                             alt="{{ $menu->nama_menu }} Image" style="width: 70px;">
@@ -32,6 +39,8 @@
                                                 </div>
                                             </li>
                                         @endforeach
+
+
                                     </ul>
                                 </li>
                             @endforeach

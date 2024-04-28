@@ -13,11 +13,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('stok', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('menu_id');
+            $table->id();
+            $table->unsignedBigInteger('menu_id');
             $table->integer('jumlah');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+
+            $table->foreign('menu_id')->references('id')->on('menu')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

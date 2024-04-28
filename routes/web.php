@@ -13,10 +13,12 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\ProdukTitipanController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\TentangApkController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
+
 use App\Models\AbsensiKaryawan;
 use App\Models\produk_titipan;
 
@@ -24,6 +26,9 @@ use App\Models\produk_titipan;
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login/cek', [UserController::class, 'cekLogin'])->name('cekLogin');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+
+Route::resource('/register', RegisterController::class);
+
 
 
 //route group
@@ -44,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     // kasir
     Route::group(['middleware' => ['cekUserLogin:2']], function () {
         Route::resource('/pemesanan', PemesananController::class);
+        Route::get('nota/{faktur}', [TransaksiController::class, 'faktur']);
     });
 });
 
@@ -52,6 +58,7 @@ Route::get('/laporan', [TentangApkController::class, 'index']);
 Route::get('/tentang', [TentangApkController::class, 'index']);
 Route::resource('/absensi', AbsensiKaryawanController::class);
 Route::resource('/contactUs', contactUsController::class);
+
 
 
 //kategori
@@ -92,7 +99,7 @@ Route::get('generate/produk_titipan', [ProdukTitipanController::class, 'exportDa
 Route::post('produk_titipan/import', [ProdukTitipanController::class, 'importExcel'])->name('import-excel');
 
 
-Route::get('nota/{faktur}', [TransaksiController::class, 'faktur']);
+
 
 //edit Stok
 Route::post('/update-stok/{produk_titipan}', 'ProdukTitipanController@update')->name('update-stok');

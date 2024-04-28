@@ -22,7 +22,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ asset('admin') }}/index2.html" class="h1"><b>Coffee</b> y</a>
+                <a href="{{ asset('admin') }}/index2.html" class="h1"><b>Coffee</b> chasier</a>
             </div>
             <div class="card-body">
                 {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
@@ -70,13 +70,11 @@
                     </div>
                     <div class="row">
                         <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
+
+
+                         
                         </div>
+
                         <!-- /.col -->
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -117,3 +115,22 @@
 </body>
 
 </html>
+<style>
+    /* Gaya untuk tombol */
+    .label-buat-akun {
+        font-size: 18px;
+        /* Ukuran font */
+        font-weight: bold;
+        /* Membuat teks tebal */
+        color: #333;
+        /* Warna teks */
+        margin-bottom: 10px;
+        /* Margin bawah */
+        display: block;
+        /* Menjadikan label elemen blok */
+    }
+
+    /* Gaya saat label dihover */
+    .label-buat-akun:hover {
+        color: #007BFF;/
+</style>
