@@ -14,12 +14,12 @@ return new class extends Migration
     {
         Schema::create('produk_titipan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama_produk');
-            $table->string('nama_supplier');
-            $table->double('harga_beli');
-            $table->double('harga_jual');
-            $table->integer('stok');
-            $table->string('keterangan');
+            // $table->string('nama_produk');
+            // $table->string('nama_supplier');
+            // $table->double('harga_beli');
+            // $table->double('harga_jual');
+            // $table->integer('stok');
+            // $table->string('keterangan');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });

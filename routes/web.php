@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AbsensiKaryawanController;
 use App\Http\Controllers\contactUsController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -12,15 +13,13 @@ use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PemesananController;
-use App\Http\Controllers\ProdukTitipanController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StokController;
 use App\Http\Controllers\TentangApkController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 
-use App\Models\AbsensiKaryawan;
-use App\Models\produk_titipan;
+
 
 //login
 Route::get('/login', [UserController::class, 'index'])->name('login');
@@ -35,8 +34,8 @@ Route::resource('/register', RegisterController::class);
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/karyawan', KaryawanController::class);
     Route::resource('/kategori', KategoriController::class);
-    Route::resource('/produk_titipan', ProdukTitipanController::class);
-    Route::get('/', [HomeController::class, 'index']);
+
+
 
     //admin
     Route::group(['middleware' => ['cekUserLogin:1']], function () {
@@ -94,12 +93,5 @@ Route::post('update-status', [AbsensiKaryawanController::class, 'updateStatus'])
 
 
 //produk titipan
-Route::get('export/poduk_titipan', [ProdukTitipanController::class, 'exportDataExcel'])->name('export-Excel');
-Route::get('generate/produk_titipan', [ProdukTitipanController::class, 'exportDataPdf'])->name('export-Pdf');
-Route::post('produk_titipan/import', [ProdukTitipanController::class, 'importExcel'])->name('import-excel');
 
-
-
-
-//edit Stok
-Route::post('/update-stok/{produk_titipan}', 'ProdukTitipanController@update')->name('update-stok');
+Route::get('/', [HomeController::class, 'index']);

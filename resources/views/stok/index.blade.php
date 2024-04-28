@@ -7,74 +7,71 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Dashboard</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Stok</li>
-                    </ol>
-                </nav>
+                <h1>Stok</h1>
+
             </div><!-- End Page Title -->
 
 
 
 
             <!-- Default box -->
-         
-               
 
-                <div class="card-body">
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }} </li>
-                                @endforeach
-                            </ul>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormStok">
-                        <i class="fas fa-plus"></i> Tambah Stok
-                    </button>
-                    <a href="{{ route('exportstok') }}" class="btn btn-success">
-                        <i class="fas fa-table"></i> Export XSLX
-                    </a>
-                    <a href="{{ route('pdf-export') }}" class="btn btn-danger">
-                        <i class="fas fa-file-pdf"></i> Export PDF
-                    </a>
-                    <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import"
-                        data-toggle="modal" data-target="#formImport">
-                        <i class="fas fa-file-import"></i> Import </button>
-                    </tbody>
+            <div class="card-body">
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                    </table>
-                    @include('stok.data')
-                    @include('stok.edit')
-                    @include('stok.form')
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                    Footer
-                </div>
-                <!-- /.card-footer-->
-          
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }} </li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalFormStok">
+                    <i class="fas fa-plus"></i> Tambah Stok
+                </button>
+                <a href="{{ route('exportstok') }}" class="btn btn-success">
+                    <i class="fas fa-table"></i> Export XSLX
+                </a>
+                <a href="{{ route('pdf-export') }}" class="btn btn-danger">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </a>
+                <button href="{{ route('bebek') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
+                    data-target="#formImport">
+                    <i class="fas fa-file-import"></i> Import </button>
+                </tbody>
+
+                </table>
+                @include('stok.data')
+                @include('stok.form')
+                @include('stok.edit')
+            </div>
+            <!-- /.card-body -->
+
+
+
+            <!-- /.card-footer-->
+
             <!-- /.card -->
         </main><!-- End #main -->
     </section>
+
 @endsection
+
 
 @push('script')
     <script>
@@ -113,10 +110,16 @@
             $('#modalEdit').on('show.bs.modal', function(e) {
                 let button = $(e.relatedTarget)
                 let id = $(button).data('id')
+                let menu_id = $(button).data('menu_id')
                 let jumlah = $(button).data('jumlah')
 
+                console.log(menu_id)
+                console.log(jumlah)
 
 
+
+
+                $(this).find('#menu_id').val(menu_id)
                 $(this).find('#jumlah').val(jumlah)
 
 

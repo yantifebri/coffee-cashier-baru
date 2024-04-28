@@ -47,19 +47,21 @@ class JenisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateJenisRequest $request, $jeni)
+    public function update(UpdateJenisRequest $request, Jenis $jeni)
     {
         try {
             DB::beginTransaction();
-            $jeni = Jenis::findOrFail($jeni);
+            $jeni = Jenis::findOrFail($jeni->id);
             $validate = $request->validated();
             $jeni->update($validate);
             DB::commit();
             return redirect()->back()->with('success', 'data berhasil di ubah');
         } catch (Exception $e) {
-            return redirect()->back()->withErrors(['message' => 'terjadi kesalahan']);
+            DB::rollback(); 
+            dd($e);
         }
     }
+
     public function destroy(Jenis $jeni)
     {
         try {

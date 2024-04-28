@@ -27,7 +27,7 @@
             </td> --}}
 
                     <td>
-                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
+                        <button type="button" class="btn btn-primary btn-edit" data-bs-toggle="modal" data-bs-target="#modalEdit"
                             data-mode = "edit" data-id = "{{ $p->id }}" data-menu_id="{{$p->menu_id}}" data-jumlah ="{{ $p->jumlah }}">
                             <i class="fas fa-edit"></i>
                         </button>

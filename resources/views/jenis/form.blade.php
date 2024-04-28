@@ -8,8 +8,9 @@
             </div>
             <div class="modal-body">
 
-                <form method="post" action="jenis">
+                <form method="post" action="jenis" enctype="multipart/form-data">
                     @csrf
+                    <div class="method"></div>
                     <div class="form-group row">
                         <label for="nama_jenis" class="col-sm-4 col-form-label">Nama Jenis</label>
                         <div class="col-sm-8">

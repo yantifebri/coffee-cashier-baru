@@ -29,28 +29,16 @@
                             <input type="text" class="form-control" id="jumlah" name='jumlah'>
                         </div>
                     </div>
-
-
-
-
-                    {{-- <label for="terpenuhi" class="form-label">Terpenuh</label>
-                <div class="mb-3">
-                  <select class="form-control" name="terpenuhi" id="terpenuhi">
-                    <option value="0" >tidak</option>
-                    <option value="1" >ya</option>
-                   </select>
-                </div> --}}
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Tambahkan</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
-</form>
+
 
 
 

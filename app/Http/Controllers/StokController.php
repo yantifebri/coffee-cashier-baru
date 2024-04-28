@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StokExport;
 use App\Models\Stok;
 use App\Http\Requests\StoreStokRequest;
 use App\Http\Requests\UpdateStokRequest;
@@ -87,7 +88,7 @@ class StokController extends Controller
     public function exportData()
     {
         $date = date('Y-m-d');
-        return Excel::download(new StokController, $date . 'stok.xlsx');
+        return Excel::download(new StokExport, $date . 'stok.xlsx');
     }
     public function generatepdf()
     {

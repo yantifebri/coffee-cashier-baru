@@ -37,6 +37,7 @@ class RegisterController extends Controller
             return redirect('register')->with('success', 'Data berhasil dihapus!');
         } catch (ModelNotFoundException | QueryException | Exception | PDOException $error) {
             dd($error->getMessage(), $error->getCode());
+            
         }
     }
 }

@@ -30,12 +30,13 @@
             </td> --}}
 
                     <td>
-                        <button type="button" class="btn btn-primary btn-edit" data-toggle="modal" data-target="#modalEdit"
-                            data-mode = "edit" data-id = "{{ $p->id }}" data-nama ="{{ $p->nama }}"
-                            data-email="{{ $p->email}}" data-nomor_telepon="{{ $p->nomor_telepon}}"
-                            data-alamat ="{{ $p->alamat }}" >
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <button type="button" class="btn btn-primary btn-edit" data-bs-toggle="modal" data-bs-target="#modalEdit"
+                        data-mode="edit" data-id="{{ $p->id }}" data-nama="{{ $p->nama }}"
+                        data-email="{{ $p->email }}" data-nomor_telepon="{{ $p->nomor_telepon }}"
+                        data-alamat="{{ $p->alamat }}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    
                         <form action="{{ route('pelanggan.destroy', $p->id) }}" method="post" style="display: inline">
                             @csrf
                             @method('DELETE')

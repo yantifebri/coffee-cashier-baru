@@ -7,13 +7,9 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Dashboard</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Menu</li>
-                    </ol>
-                </nav>
+                <h1>Menu</h1>
+
+
             </div><!-- End Page Title -->
 
 
@@ -53,8 +49,8 @@
                 <a href="{{ route('menu-pdf') }}" class="btn btn-danger">
                     <i class="fas fa-file-pdf"></i> Export PDF
                 </a>
-                <button href="{{ route('import-menu') }}" type="button" class="btn btn-warning btn-import" data-toggle="modal"
-                    data-target="#formImport">
+                <button href="{{ route('import-menu') }}" type="button" class="btn btn-warning btn-import"
+                    data-toggle="modal" data-target="#formImport">
                     <i class="fas fa-file-import"></i> Import
                 </button>
                 @include('menu.data')
@@ -117,6 +113,8 @@
 
                 let deskripsi = $(button).data('deskripsi')
                 let jenis_id = $(button).data('jenis_id')
+
+                console.log(nama_menu)
 
 
 

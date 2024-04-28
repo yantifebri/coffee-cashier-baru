@@ -17,16 +17,16 @@ class ProdukTitipanImport implements ToCollection, WithHeadingRow
     public function collection(Collection $collection)
     {
 
-        foreach ($collection as $row) {
+        // foreach ($collection as $row) {
 
-            produk_titipan::create([
-                'nama_produk' => $row['nama_produk'],
-                'nama_supplier' => $row['nama_supplier'],
-                'harga_beli' => $row['harga_beli'],
-                'harga_jual' => $row['harga_jual'],
-                'stok' => $row['stok'],
-                'keterangan' => $row['keterangan']
-            ]);
-        }
+        //     produk_titipan::create([
+        //         'nama_produk' => $row['nama_produk'],
+        //         'nama_supplier' => $row['nama_supplier'],
+        //         'harga_beli' => $row['harga_beli'],
+        //         'harga_jual' => $row['harga_jual'],
+        //         'stok' => $row['stok'],
+        //         'keterangan' => $row['keterangan']
+        //     ]);
+        // }
     }
 }

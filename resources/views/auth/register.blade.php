@@ -129,10 +129,7 @@
 
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                Footer
-            </div>
-            <!-- /.card-footer-->
+         
 
             <!-- /.card -->
         </main><!-- End #main -->

@@ -8,12 +8,7 @@
 
             <div class="pagetitle">
                 <h1>Jenis</h1>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Data</li>
-                        <li class="breadcrumb-item active"><a href="/jenis">Jenis</a></li>
-                    </ol>
-                </nav>
+
             </div><!-- End Page Title -->
 
             <!-- Default box -->
@@ -58,17 +53,22 @@
 
                 </table>
                 @include('jenis.data')
-                @include('jenis.edit')
+
+                @include('jenis.form')
+
 
             </div>
+            @include('jenis.edit')
             <!-- /.card-body -->
-            @include('jenis.form')
             <!-- /.card-footer-->
 
             <!-- /.card -->
         </main><!-- End #main -->
     </section>
+
 @endsection
+
+
 
 @push('script')
     <script>
@@ -101,19 +101,35 @@
                 else swal.close()
             })
         })
-
         $(document).ready(function() {
-
             $('#modalEdit').on('show.bs.modal', function(e) {
-                let button = $(e.relatedTarget)
-                let id = $(button).data('id')
-                let nama_jenis = $(button).data('nama_jenis')
-                console.log(nama_jenis)
+                let btn = $(e.relatedTarget);
+                let id = btn.data('id');
+                let nama_jenis = btn.data('nama_jenis');
+                console.log(btn)
 
-                $(this).find('#nama_jenis').val(nama_jenis)
+                $(this).find('#nama_jenis').val(nama_jenis);
+                $('.form-edit').attr('action', `/jenis/${id}`);
+            });
+        });
 
-                $('.form-edit').attr('action', `/jenis/${id}`)
-            })
-        })
+        // $('#modalFormJenis').on('show.bs.modal', function(e) {
+        //     const btn = $(e.relatedTarget)
+        //     const mode = btn.data('mode')
+        //     const id = btn.data('id')
+        //     const modal = $(this)
+        //     const nama_jenis = btn.data('nama_jenis')
+        //     if (mode === 'edit') {
+        //         modal.find('.modal-title').text('Edit Data Absensi')
+        //         modal.find('#nama_jenis').val(nama_jenis)
+        //         modal.find('form').attr('action', '{{ url('absensi') }}/' + id)
+        //         modal.find('#method').html('@method('PATCH')')
+        //     } else {
+        //         modal.find('.modal-title').text('Input Data Absensi')
+        //         modal.find('#nama_jenis').val('')
+        //         modal.find('#method').html('')
+        //         modal.find('form').attr('action', '{{ url('absensi') }}')
+        //     }
+        // })
     </script>
 @endpush

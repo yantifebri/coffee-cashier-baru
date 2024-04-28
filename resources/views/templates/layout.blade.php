@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Caffe</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="{{ asset('admin/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('admin/img/yanticoffee.png') }}" rel="icon">
     <link href="{{ asset('admin/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -57,8 +57,8 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="{{ asset('admin/img/logo.png') }}"" alt="">
-                <span class="d-none d-lg-block">Coffee Cashier</span>
+                <img src="{{ asset('admin/img/yanticoffee.png') }}"" alt="">
+                <span class="d-none d-lg-block">Cafe Yanti</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -307,12 +307,12 @@
             </li><!-- End Profile Page Nav --> --}}
 
             @if (Auth::check() && Auth::user()->level == 1)
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/kategori') }}">
                         <i class="bi bi-layers"></i>
                         <span> Kategori</span>
                     </a>
-                </li>
+                </li> --}}
 
 
 
@@ -348,22 +348,23 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ url('/meja') }}" class="nav-link collapsed">
                         <i class="nav-icon fas fa-solid fa-store"></i>
                         <span>
                             Meja
                         </span>
                     </a>
-                </li>
+                </li> --}}
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/laporan') }}">
 
                         <i class="fa-solid fa-book"></i>
                         <span> Laporan</span>
                     </a>
-                </li>
+                </li> --}}
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="{{ url('/contactUs') }}">
 
@@ -442,6 +443,7 @@
         </ul>
 
     </aside><!-- End Sidebar-->
+    
     @yield('content')
 
     <!-- ======= Footer ======= -->

@@ -22,7 +22,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ asset('admin') }}/index2.html" class="h1"><b>Coffee</b> chasier</a>
+                <a href="{{ asset('admin') }}/index2.html" class="h1"><b>Cafe</b> Yanti</a>
             </div>
             <div class="card-body">
                 {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
@@ -72,7 +72,7 @@
                         <div class="col-8">
 
 
-                         
+
                         </div>
 
                         <!-- /.col -->

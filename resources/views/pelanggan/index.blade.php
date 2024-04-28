@@ -7,13 +7,8 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Dashboard</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active">Pelanggan</li>
-                    </ol>
-                </nav>
+                <h1>Pelanggan</h1>
+
             </div><!-- End Page Title -->
 
 
@@ -66,9 +61,7 @@
                 @include('pelanggan.form')
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-                Footer
-            </div>
+
             <!-- /.card-footer-->
 
             <!-- /.card -->
@@ -109,25 +102,53 @@
         })
 
         $(document).ready(function() {
-
             $('#modalEdit').on('show.bs.modal', function(e) {
-                let button = $(e.relatedTarget)
-                let id = $(button).data('id')
-                let nama = $(button).data('nama')
-                let email = $(button).data('email')
-                let nomor_telepon = $(button).data('nomor_telepon')
-                let alamat = $(button).data('alamat')
+                let button = $(e.relatedTarget);
+                let id = button.data('id');
+                let nama = button.data('nama');
+                let email = button.data('email');
+                let nomor_telepon = button.data('nomor_telepon');
+                let alamat = button.data('alamat');
 
+                $(this).find('#nama').val(nama);
+                $(this).find('#email').val(email);
+                $(this).find('#nomor_telepon').val(nomor_telepon);
+                $(this).find('#alamat').val(alamat);
 
+                $('.form-edit').attr('action', `/pelanggan/${id}`);
+            });
+        });
 
-                $(this).find('#nama').val(nama)
-                $(this).find('#email').val(email)
-                $(this).find('#nomor_telepon').val(nomor_telepon)
-                $(this).find('#alamat').val(alamat)
+        // $('#modalFormPelanggan').on('show.bs.modal', function(e) {
+        //     const btn = $(e.relatedTarget)
+        //     const modal = $(this)
+        //     const mode = btn.data('mode')
+        //     const id = btn.data('id')
+        //     const nama = btn.data('nama')
+        //     const email = btn.data('email')
+        //     const ponsel = btn.data('nomor_telepon')
+        //     const alamat = btn.data('alamat')
 
-
-                $('.form-edit').attr('action', `/pelanggan/${id}`)
-            })
-        })
+        //     // Membedakan Input Atau Edit
+        //     if (mode === 'edit') {
+        //         modal.find('.modal-title').text('Edit Data')
+        //         modal.find('#nama').val(nama)
+        //         modal.find('#email').val(email)
+        //         modal.find('#nomor_telepon').val(nomor_telepon)
+        //         modal.find('#alamat').val(alamat)
+        //         modal.find('#method').html('@method('PUT')')
+        //         modal.find('form').attr('action', {{ url('pelanggan') }} / $ {
+        //             id
+        //         })
+        //     } else {
+        //         modal.find('.modal-title').text('Tambah Data')
+        //         modal.find('#nama_pelanggan').val('')
+        //         modal.find('#email').val('')
+        //         modal.find('#nomor_telepon').val('')
+        //         modal.find('#alamat').val('')
+        //         modal.find('#method').html('')
+        //         modal.find('form').attr('action', '{{ url('pelanggan') }}')
+        //     }
+        // })
     </script>
 @endpush
