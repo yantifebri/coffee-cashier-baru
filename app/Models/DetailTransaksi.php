@@ -13,11 +13,11 @@ class DetailTransaksi extends Model
 
     public function transaksi()
     {
-        return $this->belongsTo(transaksi::class,'transaksi_id');
+        return $this->belongsTo(transaksi::class, 'transaksi_id');
     }
 
     public function menu()
     {
-        return $this->hasOne(Menu::class,'id','menu_id');
+        return $this->hasOne(Menu::class, 'id', 'menu_id');
     }
 }

@@ -12,9 +12,9 @@
             <div class="card-body">
                 <h5 class="card-title">Tentang </h5>
 
-                <p class="card-text">"Selamat datang di Cafe yanti! Aplikasi website kasir kopi buatan kami memberikan
+                <p class="card-text">"Selamat datang di Cafe yanti! Aplikasi website kasir cafe buatan kami memberikan
                     kemudahan dalam mengelola transaksi, mengontrol stok, dan melihat laporan kinerja bisnis. Nikmati
-                    pembayaran cepat. Bersama Coffee Cashier, tingkatkan layanan pelanggan dan optimalkan operasional bisnis
+                    pembayaran cepat. Bersama Cafe yanti, tingkatkan layanan pelanggan dan optimalkan operasional bisnis
                     kopi Anda!"</p>
 
             </div>
@@ -25,9 +25,8 @@
                 <h5 class="card-title">Tujuan</h5>
 
                 <p class="card-text">Tujuan utama dari Cafe yanti adalah memberikan pengalaman yang menyenangkan dan
-                    efisien dalam manajemen transaksi untuk bisnis kopi Anda. Dengan platform yang intuitif dan ramah
-                    pengguna, Cafe yanti bertujuan untuk menyederhanakan proses pembayaran, melacak inventaris dengan
-                    mudah, dan memberikan laporan yang komprehensif. Kami berkomitmen untuk membantu pemilik kafe dalam
+                    efisien dalam manajemen transaksi untuk bisnis cafe Anda. Dengan platform yang intuitif dan ramah
+                    pengguna, Cafe yanti bertujuan untuk menyederhanakan proses pembayaran, dan memberikan laporan yang komprehensif. Kami berkomitmen untuk membantu pemilik kafe dalam
                     meningkatkan produktivitas mereka, mengoptimalkan layanan pelanggan, dan mencapai kesuksesan
                     bisnis yang berkelanjutan dalam industri yang penuh semangat ini.</p>
 

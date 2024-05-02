@@ -1,7 +1,7 @@
 <body>
     <div class="de">
-        <h2>Coffee</h2>
-        <h5>Jl.Limbangansari Kp.gombong</h5>
+        <h2>Cafe Yanti</h2>
+        <h5> Jl. Caringin, Mekarsari, Kec. Cianjur, Kabupaten Cianjur, Jawa Barat 43211</h5>
         <hr>
         <h5>No.Faktur : {{ $transaksi->id }}</h5>
         <h5>{{ $transaksi->tanggal }}</h5>

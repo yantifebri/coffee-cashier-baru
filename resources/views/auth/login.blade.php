@@ -22,7 +22,10 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ asset('admin') }}/index2.html" class="h1"><b>Cafe</b> Yanti</a>
+                <img src="{{ asset('admin/img/yanticoffee.png') }}" alt="Cafe Yanti Logo"
+                    style="width: 50px; height: 50px; margin-bottom: 10px;">
+                <a href="{{ asset('admin') }}/index2.html" class="h1"
+                    style="font-size: 24px; font-weight: bold;"><b>Cafe</b> Yanti</a>
             </div>
             <div class="card-body">
                 {{-- <p class="login-box-msg">Sign in to start your session</p> --}}

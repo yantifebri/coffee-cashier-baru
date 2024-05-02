@@ -23,11 +23,9 @@ class JenisController extends Controller
      */
     public function index()
     {
-        try {
-            $jenis = Jenis::latest()->get();
-            return view('jenis.index', compact('jenis'));
-        } catch (QueryException | Exception | PDOException $error) {
-        }
+        $data['jenis'] = Jenis::orderBy('created_at', 'ASC')->get();
+
+        return view('jenis.index')->with($data);
     }
     /**
      * Show the form for creating a new resource.
@@ -57,8 +55,8 @@ class JenisController extends Controller
             DB::commit();
             return redirect()->back()->with('success', 'data berhasil di ubah');
         } catch (Exception $e) {
-            DB::rollback(); 
-            dd($e);
+            DB::rollback();
+            // dd($e);
         }
     }
 

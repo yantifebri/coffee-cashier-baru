@@ -43,6 +43,11 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label for="deskripsi" class="form-label">Dibuat tanggal</label>
+                            <input type="date" class="form-control" id="created_at" name='created_at'>
+                        </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

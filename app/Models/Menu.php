@@ -9,7 +9,7 @@ class Menu extends Model
 {
     use HasFactory;
     protected $table = 'menu';
-    protected $fillable = ['nama_menu', 'harga', 'image', 'deskripsi', 'jenis_id'];
+    protected $fillable = ['nama_menu', 'harga', 'image', 'deskripsi', 'jenis_id', 'created_at'];
 
 
 
@@ -19,6 +19,6 @@ class Menu extends Model
     }
     public function stok()
     {
-        return $this->belongsTo(stok::class,'id','menu_id');
+        return $this->belongsTo(stok::class, 'id', 'menu_id');
     }
 }

@@ -8,6 +8,7 @@
                 <th>Image</th>
                 <th>Deskripsi</th>
                 <th>Jenis id</th>
+                <th>Waktu dibuat</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -22,6 +23,7 @@
                             style="width: 60px;"></td>
                     <td>{{ $p->deskripsi }}</td>
                     <td>{{ $p->jenis->nama_jenis }}</td>
+                    <td>{{ $p->created_at->format('d-m-y') }}</td>
 
                     {{-- <td>{{ $p->terpenuhi === 1 ? 'Ya' : 'Tidak'}}</td> --}}
                     {{-- <td>
@@ -36,7 +38,7 @@
                             data-bs-target="#modalEdit" data-mode = "edit" data-id = "{{ $p->id }}"
                             data-nama_menu ="{{ $p->nama_menu }}" data-harga="{{ $p->harga }}"
                             data-image ="{{ $p->image }}" data-deskripsi ="{{ $p->deskripsi }}"
-                            data-jenis_id ="{{ $p->jenis_id }}">
+                            data-jenis_id ="{{ $p->jenis_id }}" data-jenis_id ="{{ $p->created_at }}">
                             <i class="fas fa-edit"></i>
                         </button>
                         <form action="{{ route('menu.destroy', $p->id) }}" method="post" style="display: inline">

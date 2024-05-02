@@ -11,7 +11,7 @@
                 <form method="post" action=jenis class="form-edit">
                     @csrf
                     @method('PUT')
-                <div class="method"></div>
+                    <div class="method"></div>
 
                     <div class="form-group row">
 
